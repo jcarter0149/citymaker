@@ -1,3 +1,26 @@
-.city{
-    border: 4px, solid, aqua;
+.cityRow{
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-around;
+}
+.cityimg{
+    object-fit: fill;
+    height: 100px;
+    max-width: 100%;
+    object-position: center;
+}
+.borderedcity{
+    width: 33%;
+    text-align: center;
+    padding: 1rem;
+    border: 4px solid black;
+    margin: 1rem;
+    box-sizing: border-box;
+}
+.NorthAmerica{
+    background-color: green;
+}
+.Asia{
+    background-color: purple;
 }

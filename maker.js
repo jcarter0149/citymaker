@@ -17,8 +17,13 @@ const cityDomBuilder = (yearFilter) => {
            
             if (!yearFilter || yearFilter === currentCity.year) {
 
-                const citySection = document.createElement("span")
+                const citySection = document.createElement("div")
                 citySection.className = "borderedcity"
+                citySection.classList.add(
+                    currentCity.continent.replace(
+                        " ", "" 
+                    )
+                )
             
 
                 const cityName = document.createElement("h2")
@@ -40,6 +45,7 @@ const cityDomBuilder = (yearFilter) => {
                 cityTopFive.className = "citytopfive"
                 cityTopFive.textContent = currentCity.topFive 
                 citySection.appendChild(cityTopFive)
+
 
                 row.appendChild(citySection)
             }
