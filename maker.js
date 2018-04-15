@@ -1,42 +1,55 @@
 const cityBodyRef = document.querySelector("#cityBody")
 
-const cityDomBuilder = (city) => {
+const cityDomBuilder = (yearFilter) => {
 
     let row = document.createElement("div")
     row.className = "cityRow"
 
     cityDatabase.cities.forEach(
-        (currentCity, year) => {
-        {
+        (currentCity, i) => {
+
+
+            if(i !== 0 && row.childNodes.length % 3 === 0) {
                cityBodyRef.appendChild(row)
                row = document.createElement("div")
                row.className = "cityRow"
-           }
-
-           const citySection = document.createElement("span")
-            citySection.classList = "bordered city"
-           
-
-const cityName = document.createElement("h2")
-cityName.classList = "city_name"
-cityName.textContent = currentCity.name 
-citySection.appendChild(cityName)
-
-const cityYear = document.createElement("p")
-cityYear.classList = "city_year"
-cityYear.textContent = currentCity.year
-citySection.appendChild(cityYear)
-
-const cityTopFive = document.createElement("p")
-cityTopFive.classList = "city_topfive"
-cityTopFive.textContent = currentCity.topFive 
-citySection.appendChild(cityTopFive)
-
-row.appendChild(citySection)
-            
             }
-        )
-    }
+           
+            if (!yearFilter || yearFilter === currentCity.year) {
+
+                const citySection = document.createElement("span")
+                citySection.className = "borderedcity"
+            
+
+                const cityName = document.createElement("h2")
+                cityName.className = "cityname"
+                cityName.textContent = currentCity.name 
+                citySection.appendChild(cityName)
+
+                const cityImg = document.createElement("img")
+                cityImg.className = "cityimg"
+                cityImg.src = currentCity.image
+                citySection.appendChild(cityImg)
+
+                const cityYear = document.createElement("p")
+                cityYear.className = "cityyear"
+                cityYear.textContent = currentCity.year
+                citySection.appendChild(cityYear)
+
+                const cityTopFive = document.createElement("p")
+                cityTopFive.className = "citytopfive"
+                cityTopFive.textContent = currentCity.topFive 
+                citySection.appendChild(cityTopFive)
+
+                row.appendChild(citySection)
+            }
+        }
+
+    )
+
+    cityBodyRef.appendChild(row)
+}
+
         
     
 
