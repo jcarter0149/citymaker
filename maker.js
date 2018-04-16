@@ -5,6 +5,7 @@ const cityDomBuilder = (yearFilter) => {
     let row = document.createElement("div")
     row.className = "cityRow"
 
+    
     cityDatabase.cities.forEach(
         (currentCity, i) => {
 
@@ -19,6 +20,7 @@ const cityDomBuilder = (yearFilter) => {
 
                 const citySection = document.createElement("div")
                 citySection.className = "borderedcity"
+                //This take the space out of my continent so it will work as a class
                 citySection.classList.add(
                     currentCity.continent.replace(
                         " ", "" 
@@ -46,7 +48,7 @@ const cityDomBuilder = (yearFilter) => {
                 cityTopFive.textContent = currentCity.topFive 
                 citySection.appendChild(cityTopFive)
 
-
+                //this will make the row even if it only has one element(not element but you know what i mean..thing?) in it
                 row.appendChild(citySection)
             }
         }
