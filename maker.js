@@ -1,6 +1,10 @@
 const cityBodyRef = document.querySelector("#cityBody")
 
+let fragment = document.createDocumentFragment()
+
 const cityDomBuilder = (yearFilter) => {
+
+    
 
     let row = document.createElement("div")
     row.className = "cityRow"
@@ -9,9 +13,9 @@ const cityDomBuilder = (yearFilter) => {
     cityDatabase.cities.forEach(
         (currentCity, i) => {
 
-
+            //this is what sets the rows as 3 however doing it like this will not add the last row if its not a multiple of three thats why we add the appendchild as the end
             if(i !== 0 && row.childNodes.length % 3 === 0) {
-               cityBodyRef.appendChild(row)
+               fragment.appendChild(row)
                row = document.createElement("div")
                row.className = "cityRow"
             }
@@ -50,15 +54,14 @@ const cityDomBuilder = (yearFilter) => {
 
                 //this will make the row even if it only has one element(not element but you know what i mean..thing?) in it
                 row.appendChild(citySection)
+
+                
             }
         }
 
     )
 
-    cityBodyRef.appendChild(row)
+                cityBodyRef.appendChild(fragment)
 }
-
-        
-    
 
 cityDomBuilder()
