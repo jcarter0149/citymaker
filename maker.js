@@ -60,8 +60,13 @@ const cityDomBuilder = (yearFilter) => {
         }
 
     )
+        cityBodyRef.appendChild(fragment)
+        
+        if (row.childNodes.length){
+            cityBodyRef.appendChild(row)
+        }
 
-                cityBodyRef.appendChild(fragment)
+                
 }
 
 cityDomBuilder()
